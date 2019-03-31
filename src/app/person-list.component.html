@@ -1,0 +1,27 @@
+<table class="highlight">
+<thead>
+    <tr>
+        <th>Id</th>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <th>Name</th>
+        <th>Email</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <th>Academic Porgram</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <th>Academic Level</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <th>GPA</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <th>BirthDate</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </tr>
+</thead>
+<tbody>
+        <tr *ngFor='let s of students'>
+            <td>{{ s.studentId }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>{{ s.givenName + ' ' + s.familyName }}</td>
+            <td>{{ s.email }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>{{ s.academicProgram }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>{{ s.academicLevel }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>{{ s.gpa}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>{{ s.birthDate | date }}</td>&nbsp;
+            <td><a class="btn btn-default" routerLink="/students/{{ s.studentId }}" routerLinkActive="Active">Detail</a></td>
+        </tr>
+</tbody>
+
+</table>

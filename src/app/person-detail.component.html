@@ -1,0 +1,79 @@
+<a class="btn btn-default" routerLink="/cart" routerLinkActive="Active">Select Courses</a>
+<div>
+<dl>
+    <dt>Student Id</dt>
+    <dd>{{ student.studentId }}</dd>  
+    <dt>Name</dt>
+    <dd>{{student.givenName}} {{student.familyName}}</dd>
+    <dt>Email</dt>
+    <dd>{{student.email}}</dd>
+    <dt>GPA</dt>
+    <dd>{{student.gpa}}</dd>
+    <dt>Academic Level</dt>
+    <dd>{{student.academicLevel}}</dd>
+    <dt>Birthdate</dt>
+    <dd>{{student.birthDate | date}}</dd>
+    
+</dl>
+<div >
+<strong>Tentative Courses</strong>
+<table >
+    <thead >
+        <tr>
+            <th>Term</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <th>Course</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <th>Day and Time</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </tr>
+    </thead>
+    <tbody>
+            <tr *ngFor="let c of coursesChosen" >
+                <td>{{c.term}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <td>{{c.courseCode}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </tr>
+
+    </tbody>
+    
+</table>
+</div>
+<strong>Confirmed Courses</strong>
+<table >
+    <thead >
+        <tr>
+            <th>Term</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <th>Course</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <th>Day and Time</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                
+            </tr>
+
+    </tbody>
+    
+</table>
+
+<strong>Courses completed: {{courseCount}}</strong>
+<table >
+    <thead >
+        <tr>
+            <th>Term</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <th>Grade</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <th>Course</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </tr>
+    </thead>
+    <tbody>
+            <tr *ngFor="let c of student['credits']">
+                <td>{{c.termCompleted}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <td>{{c.gradeEarned}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <td>{{c.courseCode}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <td>{{c.courseName}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
+            </tr>
+
+    </tbody>
+    
+</table>
+
+
+  

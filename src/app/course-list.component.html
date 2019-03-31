@@ -1,0 +1,21 @@
+<table class="highlight">
+  <thead>
+      <tr>
+          <th>course Id</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <th>Code</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <th>Section and Instance Id</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <th>Enrolled</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <th>Professor</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </tr>
+  </thead>
+  <tbody>
+          <tr *ngFor='let s of courses'>
+              <td>{{ s.courseId }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <td>{{ s.courseCode}}</td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <td>{{ s.section + '-' + s.termSectionId }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <td>{{ s.enrolTotal }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <td>{{ s.professor }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </tr>
+  </tbody>
+  
+  </table>

@@ -1,0 +1,29 @@
+<a class="btn btn-default" routerLink="/students/{{ student.studentId }}" routerLinkActive="Active">Back to Student Detail</a>
+<a class="btn btn-default" (click)="resetCourseSelection()">Reset Course Selection</a>
+<a class="btn btn-default" (click)="saveCourses()">Save Courses</a>
+<table class="table table-striped table-condensed">
+  <thead>
+    <tr>
+      <th>Course</th>
+      <th>Day</th>
+      <th>Start</th>
+      <th>End</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of coursesSelectedForUI">
+      <td>{{ c.courseCode }} - {{ c.section }} ({{ c.termSectionId }})</td>
+      <td>
+        <span *ngIf="c.classMon == 'Y'"> Monday: from {{ c.classStart }} to {{ c.classEnd }}</span>
+        <span *ngIf="c.classTue == 'Y'"> Tuesday: from {{ c.classStart }} to {{ c.classEnd }}</span>
+        <span *ngIf="c.classWed == 'Y'"> Wednesday: from {{ c.classStart }} to {{ c.classEnd }}</span>
+        <span *ngIf="c.classThu == 'Y'"> Thursday: from {{ c.classStart }} to {{ c.classEnd }}</span>
+        <span *ngIf="c.classFri == 'Y'"> Friday: from {{ c.classStart }} to {{ c.classEnd }}</span>
+      </td>
+      <td>{{ c.classStart }}</td>
+      <td>{{ c.classEnd }}</td>
+      <button class="btn btn-default" [ngClass]='btn-success' (click)="courseSelect(c)">+ / -</button>
+
+    </tr>
+    
+  </tbody>
