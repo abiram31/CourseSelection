@@ -16,6 +16,7 @@ const routes: Routes = [
   {path: 'cart', component: CartSelectedListComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: NotFoundComponent}
+  
 ];
 
 @NgModule({
