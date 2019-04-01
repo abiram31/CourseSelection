@@ -7,7 +7,6 @@ import { PersonDetailComponent } from './person-detail.component';
 import { CourseListComponent} from './course-list.component';
 import { CartSelectedListComponent} from './cart-selected-list.component';
 import { Student } from './dataModelClasses';
-import { CartComponent} from './cart.component';
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'students', component: PersonListComponent},
@@ -16,7 +15,7 @@ const routes: Routes = [
   {path: 'cart', component: CartSelectedListComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: NotFoundComponent}
-  
+
 ];
 
 @NgModule({

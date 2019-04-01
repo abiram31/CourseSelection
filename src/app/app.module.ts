@@ -11,7 +11,6 @@ import { PersonListComponent } from './person-list.component';
 import { PersonDetailComponent } from './person-detail.component';
 import { CourseListComponent } from './course-list.component';
 import { CartSelectedListComponent } from './cart-selected-list.component';
-import { CartComponent } from './cart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +21,6 @@ import { CartComponent } from './cart.component';
     PersonDetailComponent,
     CourseListComponent,
     CartSelectedListComponent,
-    CartComponent
   ],
   imports: [
     BrowserModule,
