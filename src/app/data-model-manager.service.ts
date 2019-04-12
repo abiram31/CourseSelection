@@ -17,8 +17,8 @@ export  class DataModelManagerService {
   public coursesChosen: Course[] = [];
   constructor(private http: HttpClient) { }
   personsGetAll(): Observable<Student[]> {
-    //return of(STUDENTS);
-    return this.http.get<Student[]>(this.url);
+    return of(STUDENTS);
+    //return this.http.get<Student[]>(this.url);
   }
   courseGetAll(): Observable<Course[]>{
     return of(COURSES);
@@ -26,8 +26,8 @@ export  class DataModelManagerService {
   personsGetById(studentId: string): Observable<Student> {
     for (var i=0; i <28; i++){
       if (STUDENTS[i].studentId == studentId){
-        //return of(STUDENTS[i]);
-        return this.http.get<Student>(`${this.url}/${studentId}`);
+        return of(STUDENTS[i]);
+        //return this.http.get<Student>(`${this.url}/${studentId}`);
       }
         
     }
