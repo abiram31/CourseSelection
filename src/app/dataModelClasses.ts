@@ -44,3 +44,13 @@ export class Course{
     dateEnd: string;
     professor: String;
 }
+
+export class User{
+    userName: string;
+	fullName: string;
+	password: string;
+	statusActivated: boolean;
+	statusLocked: boolean;
+	role: string;
+    claims: string[];
+}

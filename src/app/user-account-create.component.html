@@ -1,0 +1,62 @@
+<div class="row">
+  <h4>Activation - enter information, and click the Submit button</h4>
+  <div class='col-md-8 col-sm-12'>
+
+    <form (ngSubmit)="onSubmit()" #f='ngForm' >
+
+      <!-- Edit to make this an Angular template-driven form -->
+
+      <div class="form-group">
+        <label class="control-label" for="userName">User name:</label>
+        <input class="form-control" id="userName" [(ngModel)]="activate.userName" minlength="6"
+        maxlength="50" name="userName" #userName="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}" required>
+        <div *ngIf='userName.invalid && (userName.dirty || userName.touched)' class='alert alert-danger'>
+          <div *ngIf='userName.errors?.required'>UserName is required, 6 to 50 characters</div>
+          <div *ngIf='userName.errors?.minlength'>UserName must be at least 6 characters</div>
+          <div *ngIf='userName.errors?.maxlength'>UserName must be less than 50 characters</div>
+          <div *ngIf='userName.errors?.pattern'>UserName must be an email</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="password">Password:</label>
+        <input type="password" class="form-control" id="password" [(ngModel)]="create.password" minlength="6"
+        maxlength="50" name="password"  #password="ngModel" required>
+        <div *ngIf='password.invalid && (password.dirty || password.touched)' class='alert alert-danger'>
+          <div *ngIf='password.errors?.required'>password is required, 6 to 50 characters</div>
+          <div *ngIf='password.errors?.minlength'>password must be at least 6 characters</div>
+          <div *ngIf='password.errors?.maxlength'>UserName must be less than 50 characters</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="newPass">Password:</label>
+        <input type="newPass" class="form-control" id="newPass" [(ngModel)]="create.newPass" minlength="6"
+        maxlength="50" name="newPass"  #newPass="ngModel" required>
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="Name">Full Name:</label>
+        <input type="Name" class="form-control" id="Name" [(ngModel)]="create.Name" minlength="6"
+        maxlength="50" name="Name"  #name="ngModel" required>
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="role">Roles:</label>
+        <select multiple class="form-control" name="role" [(ngModel)]="create.role">
+          <option >Teacher</option>
+          <option >Janitor</option>
+          <option >Student</option>
+        </select>
+  
+      </div>
+      <a class="btn btn-default" routerLink='/home'>Back to home</a>
+      <!-- <button class="btn btn-default" (click)='logout()'>Logout</button> -->
+      <button class="btn btn-primary" type="submit" [disabled]="!f.form.valid">Create User Account</button>&nbsp;&nbsp;
+      <span *ngIf='CreationError.length>0' class="text-danger">{{ CreationError }}</span>
+    </form>
+
+  </div>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>

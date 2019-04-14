@@ -8,11 +8,14 @@ import { STUDENTS } from "./students";
 import { Observable, of } from 'rxjs';
 import { COURSES} from "./courses";
 import { Course } from "./dataModelClasses";
+import { User } from "./dataModelClasses";
+import { USERS} from "./users";
 @Injectable({
   providedIn: 'root'
 })
 export  class DataModelManagerService {
-  private url: string = 'https://peaceful-earth-34799.herokuapp.com/api/students';
+  private URL: string = 'https://floating-hamlet-45688.herokuapp.com/api/students';
+  private user: string = 'herokuforUsers.com/api/users';
   public student: Student;
   public coursesChosen: Course[] = [];
   constructor(private http: HttpClient) { }
@@ -26,13 +29,44 @@ export  class DataModelManagerService {
   personsGetById(studentId: string): Observable<Student> {
     for (var i=0; i <28; i++){
       if (STUDENTS[i].studentId == studentId){
+        console.log(STUDENTS[i]);
         return of(STUDENTS[i]);
-        //return this.http.get<Student>(`${this.url}/${studentId}`);
+        //return this.http.get<Student>(`${this.url}/${email}`);
       }
         
     }
   }
-  
+  activate(userName: string, password: string, newPass: string, role: string): Observable<any> {
+    return this.http.post(`${this.user}/activate`, {
+      userName: userName,
+      password: password,
+      passwordConfirm: newPass,
+      role: role
+    })
+  }
+  create(userName: string, password: string, newPass: string, fullName: string,  role: string): Observable<any> {
+    return this.http.post(`${this.user}/create`, {
+      userName: userName,
+      password: password,
+      passwordConfirm: newPass,
+      fullName: fullName,
+      role: role
+    })
+  }
+
+  personsGetByEmail(email: string): Observable<Student> {
+    for (var i=0; i <28; i++){
+      if (STUDENTS[i].email == email){
+        return of(STUDENTS[i]);
+      }
+        
+    }
+  }
+  getUserbyUserName(userName: string): Observable<Student> {
+    return this.http.get<Student>(`${this.URL}/username/${userName}`);
+  }
+    
+
   getStudent(): Student{
     console.log(this.student);
     return this.student;

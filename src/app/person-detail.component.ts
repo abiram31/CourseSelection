@@ -12,6 +12,7 @@ import { STUDENTS } from "./students";
 export class PersonDetailComponent implements OnInit {
   coursesChosen: Course[] = [];
   studentId: string;
+  userName: string;
   student: Student;
   futureCourses: Course;
   courses: Course[];
@@ -19,11 +20,16 @@ export class PersonDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private s: DataModelManagerService) { }
 
   ngOnInit() {
-    this.studentId = this.route.snapshot.paramMap.get("studentId");
-    this.s.personsGetById(this.studentId).subscribe(studentData => {
+    this.student = this.s.student;
+    //this.studentId = this.route.snapshot.paramMap.get("studentId");
+    //this.userName = this.route.snapshot.paramMap.get("userName");
+    //console.log(this.userName);
+    /*
+    this.s.personsGetByEmail(this.userName).subscribe(studentData => {
       console.log(studentData);
       this.student = studentData;
     });
+    */
     this.s.getFutureCourses(this.studentId).subscribe(s =>{
       this.courses = s;
     });
