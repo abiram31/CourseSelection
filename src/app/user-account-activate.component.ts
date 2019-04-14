@@ -13,7 +13,7 @@ import { DataModelManagerService } from './data-model-manager.service';
 export class UserAccountActivateComponent implements OnInit {
 // Properties
 
-private activate: Activation;
+activate: Activation;
 ActivationError: string;
 roles: string[] = [
   "Teacher",

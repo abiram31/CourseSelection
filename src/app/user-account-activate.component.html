@@ -46,7 +46,7 @@
       <a class="btn btn-default" routerLink='/home'>Back to home</a>
       <!-- <button class="btn btn-default" (click)='logout()'>Logout</button> -->
       <button class="btn btn-primary" type="submit" [disabled]="!f.form.valid">Activate User Account</button>&nbsp;&nbsp;
-      <span *ngIf='AcitvationError.length>0' class="text-danger">{{ ActivationError }}</span>
+      <span *ngIf='ActivationError.length>0' class="text-danger">{{ ActivationError }}</span>
     </form>
 
   </div>
